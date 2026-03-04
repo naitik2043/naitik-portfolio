@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -44,7 +44,6 @@ export const ShowcaseSection = () => {
     <div id="projects" className="app-showcase" ref={sectionRef}>
       <div className="w-full">
         <div className="showcaselayout">
-          {/* Left Main Project */}
           <div className="first-project-wrapper" ref={project1Ref}>
             <div className="image-wrapper">
               <img src="/images/project1.png" alt="Paste App" />
@@ -96,7 +95,6 @@ export const ShowcaseSection = () => {
             </div>
           </div>
 
-          {/* Right Side Projects */}
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={project2Ref}>
               <div className="image-wrapper bg-[#e0f7ff]">
@@ -137,7 +135,6 @@ export const ShowcaseSection = () => {
           </div>
         </div>
 
-        {/* React Lab Section (Below Projects) */}
         <div className="mt-20" ref={reactLabRef}>
           <div className="border border-white/10 rounded-2xl p-8 bg-white/5">
             <h2 className="text-2xl md:text-3xl font-semibold">

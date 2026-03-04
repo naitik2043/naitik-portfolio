@@ -33,7 +33,7 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
       );
 
       toast.success(`Thanks ${form.name}! Your message was sent 🚀`);
@@ -43,7 +43,6 @@ const Contact = () => {
         email: "",
         message: "",
       });
-
     } catch (error) {
       console.error("EmailJS Error:", error);
       toast.error("Failed to send message. Please try again.");
@@ -58,24 +57,20 @@ const Contact = () => {
       className="min-h-[calc(100vh-80px)] flex items-center py-8"
     >
       <div className="w-full max-w-7xl mx-auto px-5 md:px-10">
-
         <TitleHeader
           title="Get in Touch"
           sub="Interested in collaboration, internships, or project discussions? Feel free to reach out."
         />
 
         <div className="grid-12-cols mt-6 items-stretch gap-6">
-
           {/* Contact Form */}
           <div className="xl:col-span-5">
             <div className="card-border rounded-xl p-7 h-full flex items-center">
-
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-4"
               >
-
                 <div>
                   <label htmlFor="name">Your Name</label>
                   <input
@@ -126,18 +121,15 @@ const Contact = () => {
                     </div>
                   </div>
                 </button>
-
               </form>
             </div>
           </div>
 
-          {/* 3D Contact Experience */}
           <div className="xl:col-span-7 min-h-[320px]">
             <div className="bg-[#cd7c2e] w-full h-full rounded-3xl overflow-hidden hover:cursor-grab">
               <ContactExperience />
             </div>
           </div>
-
         </div>
       </div>
     </section>

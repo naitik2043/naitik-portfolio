@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import TitleHeader from "../components/TitleHeader";
-import TechIconCardExperience from "../components/Models/tech_logos/TechIconCardExperience";
+import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
 import { techStackIcons } from "../constants";
 
 const TechStack = () => {
@@ -35,7 +35,6 @@ const TechStack = () => {
           sub="Frontend development tools and technologies used to build modern and responsive web applications"
         />
 
-        {/* Improved Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16">
           {techStackIcons.map((techStackIcon) => (
             <div

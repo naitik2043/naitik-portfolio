@@ -2,7 +2,10 @@ import { abilities } from "../constants";
 
 const FeatureCards = () => {
   return (
-    <section id="expertise" className="w-full padding-x-lg py-14 sm:py-20 scroll-mt-32">
+    <section
+      id="expertise"
+      className="w-full padding-x-lg py-14 sm:py-20 scroll-mt-32"
+    >
       <div className="max-w-7xl mx-auto text-center mb-10 sm:mb-14">
         <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
           Core Strengths

@@ -55,7 +55,6 @@ section {
     @apply xl:mt-20 md:mt-0 mt-40;
   }
 
-  /* General Grids */
   .grid-base {
     @apply grid grid-cols-1;
   }
@@ -322,7 +321,6 @@ section {
   }
 }
 
-/* Hero text slider starts */
 .slide {
   display: inline-block;
   flex-direction: column;
@@ -362,8 +360,6 @@ section {
   }
 }
 
-/* Hero Text slider ends */
-
 .gradient-line {
   width: 2px;
   background: linear-gradient(
@@ -394,7 +390,6 @@ section {
   );
 }
 
-/* marquee */
 .marquee {
   width: 100dvw;
   overflow: hidden;
@@ -420,7 +415,6 @@ section {
     left: -100%;
   }
 }
-/* marquee end */
 
 .card {
   --start: 0;
@@ -442,7 +436,8 @@ section {
   border: 2px solid transparent;
   background: var(--gradient);
   background-attachment: fixed;
-  mask: linear-gradient(#0000, #0000),
+  mask:
+    linear-gradient(#0000, #0000),
     conic-gradient(
       from calc((var(--start) - 15) * 1deg),
       #ffffff1f 0deg,

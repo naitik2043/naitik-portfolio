@@ -4,7 +4,10 @@ import GlowCard from "../components/GlowCard";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="flex-center section-padding scroll-mt-32">
+    <section
+      id="testimonials"
+      className="flex-center section-padding scroll-mt-32"
+    >
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="Peer & Project Feedback"
