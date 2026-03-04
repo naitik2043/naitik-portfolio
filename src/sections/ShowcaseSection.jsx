@@ -163,3 +163,5 @@ export const ShowcaseSection = () => {
     </div>
   );
 };
+
+export default ShowcaseSection;

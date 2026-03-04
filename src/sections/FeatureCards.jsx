@@ -22,18 +22,18 @@ const FeatureCards = () => {
           <div
             key={title || index}
             className="
-              group
-              relative
-              bg-gradient-to-br from-[#0f172a] to-[#0b1120]
-              border border-white/10
-              rounded-2xl
-              p-6 sm:p-7 md:p-8
-              flex flex-col gap-4
-              transition-all duration-300
-              hover:-translate-y-2
-              hover:border-blue-500/40
-              hover:shadow-[0_0_45px_rgba(59,130,246,0.18)]
-            "
+    group
+    relative
+    bg-gradient-to-br from-[#0f172a] to-[#0b1120]
+    border border-white/10
+    rounded-2xl
+    p-6 sm:p-7 md:p-8
+    flex flex-col gap-4
+    transition-all duration-300
+    hover:-translate-y-2
+    hover:border-blue-500/40
+    hover:shadow-[0_0_45px_rgba(59,130,246,0.18)]
+  "
           >
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_70%)]" />
 
