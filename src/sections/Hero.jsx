@@ -1,8 +1,40 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
-import HeroExperience from "../components/Models/hero_models/HeroExperience";
+
+const HeroExperience = lazy(() =>
+  import("../components/Models/hero_models/HeroExperience"),
+);
 
 const Hero = () => {
+  const [showExperience, setShowExperience] = useState(false);
+
+  useEffect(() => {
+    const canShowScene = window.matchMedia(
+      "(min-width: 1100px) and (prefers-reduced-motion: no-preference)",
+    ).matches;
+
+    if (!canShowScene) return undefined;
+
+    let idleId;
+    let timerId;
+
+    const revealScene = () => setShowExperience(true);
+
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(revealScene, { timeout: 1800 });
+    } else {
+      timerId = window.setTimeout(revealScene, 1200);
+    }
+
+    return () => {
+      if (idleId !== undefined && typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timerId !== undefined) window.clearTimeout(timerId);
+    };
+  }, []);
+
   return (
     <section id="hero" className="relative overflow-hidden" aria-labelledby="hero-title">
       <div className="absolute top-0 left-0 z-10" aria-hidden="true">
@@ -10,7 +42,7 @@ const Hero = () => {
       </div>
 
       <div className="hero-layout">
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header className="hero-copy">
           <div className="flex flex-col gap-5 max-w-3xl">
             <p className="hero-badge">Software Engineering · Data Science · AI Systems</p>
             <h1 id="hero-title" className="text-5xl md:text-7xl font-bold relative z-10">
@@ -37,7 +69,13 @@ const Hero = () => {
         </header>
 
         <figure className="hero-3d-layout" aria-hidden="true">
-          <HeroExperience />
+          {showExperience ? (
+            <Suspense fallback={<div className="hero-scene-placeholder" />}>
+              <HeroExperience />
+            </Suspense>
+          ) : (
+            <div className="hero-scene-placeholder" />
+          )}
         </figure>
       </div>
 
