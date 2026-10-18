@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 
@@ -8,32 +8,6 @@ const HeroExperience = lazy(() =>
 
 const Hero = () => {
   const [showExperience, setShowExperience] = useState(false);
-
-  useEffect(() => {
-    const canShowScene = window.matchMedia(
-      "(min-width: 1100px) and (prefers-reduced-motion: no-preference)",
-    ).matches;
-
-    if (!canShowScene) return undefined;
-
-    let idleId;
-    let timerId;
-
-    const revealScene = () => setShowExperience(true);
-
-    if (typeof window.requestIdleCallback === "function") {
-      idleId = window.requestIdleCallback(revealScene, { timeout: 1800 });
-    } else {
-      timerId = window.setTimeout(revealScene, 1200);
-    }
-
-    return () => {
-      if (idleId !== undefined && typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timerId !== undefined) window.clearTimeout(timerId);
-    };
-  }, []);
 
   return (
     <section id="hero" className="relative overflow-hidden" aria-labelledby="hero-title">
@@ -68,13 +42,30 @@ const Hero = () => {
           </div>
         </header>
 
-        <figure className="hero-3d-layout" aria-hidden="true">
+        <figure className="hero-3d-layout" aria-label="Interactive 3D workspace">
           {showExperience ? (
-            <Suspense fallback={<div className="hero-scene-placeholder" />}>
+            <Suspense
+              fallback={
+                <div className="hero-scene-placeholder hero-scene-loading" role="status">
+                  Loading the interactive room…
+                </div>
+              }
+            >
               <HeroExperience />
             </Suspense>
           ) : (
-            <div className="hero-scene-placeholder" />
+            <div className="hero-scene-placeholder">
+              <div className="hero-scene-prompt">
+                <span className="hero-scene-kicker">Interactive 3D workspace</span>
+                <button
+                  className="hero-scene-load"
+                  type="button"
+                  onClick={() => setShowExperience(true)}
+                >
+                  Explore the room
+                </button>
+              </div>
+            </div>
           )}
         </figure>
       </div>
