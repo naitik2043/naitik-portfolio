@@ -1,19 +1,47 @@
-import { useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
 import TitleHeader from "../components/TitleHeader";
-import ContactExperience from "../components/Models/contact/ContactExperience";
+
+const ContactExperience = lazy(() =>
+  import("../components/Models/contact/ContactExperience"),
+);
 
 const Contact = () => {
   const formRef = useRef(null);
+  const sceneRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [showExperience, setShowExperience] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    const scene = sceneRef.current;
+    if (!scene) return undefined;
+
+    if (typeof window.IntersectionObserver !== "function") {
+      setShowExperience(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowExperience(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "180px 0px" },
+    );
+
+    observer.observe(scene);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -129,8 +157,17 @@ const Contact = () => {
           </div>
 
           <div className="xl:col-span-7 min-h-[320px]" aria-hidden="true">
-            <div className="bg-[#cd7c2e] w-full h-full rounded-3xl overflow-hidden hover:cursor-grab">
-              <ContactExperience />
+            <div
+              ref={sceneRef}
+              className="contact-scene bg-[#cd7c2e] w-full h-full rounded-3xl overflow-hidden hover:cursor-grab"
+            >
+              {showExperience ? (
+                <Suspense fallback={<div className="contact-scene-placeholder" />}>
+                  <ContactExperience />
+                </Suspense>
+              ) : (
+                <div className="contact-scene-placeholder" />
+              )}
             </div>
           </div>
         </div>
