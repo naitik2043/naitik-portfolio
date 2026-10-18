@@ -160,6 +160,22 @@ section {
       }
     }
 
+    .header-actions {
+      @apply flex items-center gap-3;
+    }
+
+    .theme-toggle {
+      @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 px-3 py-2 text-sm font-medium text-white-50 transition-colors duration-200 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+    }
+
+    .theme-toggle svg {
+      @apply size-4 flex-none;
+    }
+
+    .theme-toggle-label {
+      @apply hidden sm:inline;
+    }
+
     .contact-btn {
       @apply flex;
 
@@ -317,26 +333,46 @@ section {
   }
 
   .footer {
-    @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
+    @apply my-10 md:mt-20 mt-10 px-5 md:px-10 text-white-50;
 
     .footer-container {
-      @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 w-full;
+      @apply max-w-7xl mx-auto w-full py-10;
     }
 
-    p {
-      @apply text-center md:text-start cursor-pointer;
+    .footer-grid {
+      @apply grid grid-cols-1 md:grid-cols-3 gap-10;
     }
 
-    .socials {
-      @apply flex items-center justify-center gap-5;
+    .footer-brand {
+      @apply text-2xl font-semibold text-white;
+    }
 
-      .icon {
-        @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl size-10 md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
-      }
+    .footer-summary {
+      @apply mt-4 max-w-md leading-relaxed text-white/80;
+    }
 
-      img {
-        @apply inline-block;
-      }
+    .footer-availability {
+      @apply mt-3 max-w-md text-sm text-white/60;
+    }
+
+    .footer-contact {
+      @apply inline-flex mt-5 text-sky-200 font-medium underline underline-offset-4;
+    }
+
+    .footer-heading {
+      @apply mb-4 text-sm font-semibold uppercase tracking-wider text-white;
+    }
+
+    .footer-link-list {
+      @apply flex flex-col gap-3 text-sm text-white/70;
+    }
+
+    .footer-link-list a {
+      @apply hover:text-white hover:underline underline-offset-4;
+    }
+
+    .footer-bottom {
+      @apply mt-10 border-t border-white/10 pt-5 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-white/60;
     }
   }
 }
@@ -500,4 +536,131 @@ section {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Light theme overrides for the utility classes used throughout the site. */
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="light"] body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html[data-theme="light"] .text-white,
+html[data-theme="light"] .text-white-50,
+html[data-theme="light"] [class~="text-white/50"],
+html[data-theme="light"] [class~="text-white/60"],
+html[data-theme="light"] [class~="text-white/70"],
+html[data-theme="light"] [class~="text-white/80"] {
+  color: #334155;
+}
+
+html[data-theme="light"] .navbar.scrolled {
+  background-color: rgba(248, 250, 252, 0.94);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .navbar .logo,
+html[data-theme="light"] .navbar nav.desktop ul li,
+html[data-theme="light"] .navbar .mobile-nav ul {
+  color: #0f172a;
+}
+
+html[data-theme="light"] .navbar nav.desktop ul li span:hover,
+html[data-theme="light"] .navbar .mobile-nav a:hover {
+  color: #020617;
+}
+
+html[data-theme="light"] .navbar nav.desktop ul li .underline {
+  background-color: #0f172a;
+}
+
+html[data-theme="light"] .navbar .theme-toggle {
+  border-color: rgba(15, 23, 42, 0.2);
+  color: #0f172a;
+}
+
+html[data-theme="light"] .navbar .theme-toggle:hover {
+  background-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .navbar .contact-btn .inner {
+  background-color: #0f172a;
+  color: #fff;
+}
+
+html[data-theme="light"] .navbar .contact-btn .inner span {
+  color: #fff;
+}
+
+html[data-theme="light"] .bg-black,
+html[data-theme="light"] .bg-black-100,
+html[data-theme="light"] [class~="bg-[#0d1118]"] {
+  background-color: #fff;
+}
+
+html[data-theme="light"] .bg-black-50,
+html[data-theme="light"] .bg-black-200,
+html[data-theme="light"] [class~="bg-white/5"] {
+  background-color: #f1f5f9;
+}
+
+html[data-theme="light"] [class~="bg-white/10"] {
+  background-color: rgba(15, 23, 42, 0.07);
+}
+
+html[data-theme="light"] [class~="border-white/10"] {
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+html[data-theme="light"] .text-sky-100,
+html[data-theme="light"] .text-sky-200 {
+  color: #0369a1;
+}
+
+html[data-theme="light"] .hero-badge {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+html[data-theme="light"] .timeline {
+  background-color: #f8fafc;
+}
+
+html[data-theme="light"] .card-border {
+  border-color: #cbd5e1;
+  background-color: #fff;
+}
+
+html[data-theme="light"] form input,
+html[data-theme="light"] form textarea {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+html[data-theme="light"] form input::placeholder,
+html[data-theme="light"] form textarea::placeholder {
+  color: #475569;
+}
+
+html[data-theme="light"] .footer {
+  color: #334155;
+}
+
+html[data-theme="light"] .footer .footer-brand,
+html[data-theme="light"] .footer .footer-heading {
+  color: #0f172a;
+}
+
+html[data-theme="light"] .footer .footer-summary,
+html[data-theme="light"] .footer .footer-availability,
+html[data-theme="light"] .footer .footer-link-list,
+html[data-theme="light"] .footer .footer-bottom {
+  color: #475569;
+}
+
+html[data-theme="light"] .footer .footer-contact {
+  color: #0369a1;
 }

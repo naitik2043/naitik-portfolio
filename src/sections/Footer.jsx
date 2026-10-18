@@ -1,33 +1,62 @@
-import { profileLinks } from "../constants";
+import { navLinks, profileLinks } from "../constants";
 
 const Footer = () => {
   return (
-    <footer className="footer border-t border-white/10 mt-20">
-      <div className="footer-container flex flex-col md:flex-row items-center justify-between gap-6 py-6">
-        <p className="text-sm text-white/70 text-center">
-          Open to software engineering and data science internship opportunities
-        </p>
+    <footer className="footer mt-20 border-t border-white/10">
+      <div className="footer-container">
+        <div className="footer-grid">
+          <div>
+            <a className="footer-brand" href="#hero">
+              Naitik Gupta
+            </a>
+            <p className="footer-summary">
+              Computer Science and Engineering student focused on software
+              engineering, AI agent governance, and applied data science.
+            </p>
+            <p className="footer-availability">
+              Open to software engineering and data science internship
+              opportunities.
+            </p>
+            <a className="footer-contact" href="#contact">
+              Discuss an opportunity
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </div>
 
-        <nav aria-label="Professional profiles">
-          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            {profileLinks.map((profile) => (
-              <li key={profile.name}>
-                <a
-                  href={profile.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/80 hover:text-white underline-offset-4 hover:underline"
-                >
-                  {profile.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav aria-label="Footer navigation">
+            <h2 className="footer-heading">Explore</h2>
+            <ul className="footer-link-list">
+              {navLinks.map(({ link, name }) => (
+                <li key={name}>
+                  <a href={link}>{name}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <p className="text-sm text-white/60 text-center md:text-right">
-          © {new Date().getFullYear()} Naitik Gupta · React · Vite · Tailwind CSS
-        </p>
+          <nav aria-label="Professional profiles">
+            <h2 className="footer-heading">Find me online</h2>
+            <ul className="footer-link-list">
+              {profileLinks.map((profile) => (
+                <li key={profile.name}>
+                  <a
+                    href={profile.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {profile.name}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Naitik Gupta</p>
+          <p>Built with React, Vite, and Tailwind CSS</p>
+        </div>
       </div>
     </footer>
   );

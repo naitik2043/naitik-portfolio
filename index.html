@@ -28,6 +28,24 @@
     <meta property="og:url" content="https://naitikgupta.vercel.app/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0f172a" />
+    <script>
+      (() => {
+        let theme = "dark";
+        try {
+          const saved = localStorage.getItem("portfolio-theme");
+          theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+        } catch {
+          theme = "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
 
   <body class="bg-slate-950 text-white">
