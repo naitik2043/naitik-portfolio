@@ -64,6 +64,7 @@ const Contact = () => {
           name: form.name,
           email: form.email,
           message: form.message,
+          title: "Portfolio contact",
           to_email: "naitikgupta2043@gmail.com",
           reply_to: form.email,
         },
