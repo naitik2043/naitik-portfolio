@@ -1,6 +1,48 @@
 import { navLinks } from "../constants";
 import { useEffect, useState } from "react";
 
+const scrollToSection = (hash, behavior) => {
+  const target = document.getElementById(hash.slice(1));
+  if (!target) return false;
+
+  const headerHeight =
+    document.querySelector(".navbar")?.getBoundingClientRect().height ?? 0;
+  const targetTop =
+    target.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: behavior ?? (reducedMotion ? "auto" : "smooth"),
+  });
+
+  return true;
+};
+
+const handleSectionClick = (event, hash) => {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
+  if (!document.getElementById(hash.slice(1))) return;
+
+  event.preventDefault();
+  if (window.location.hash !== hash) {
+    window.history.pushState(null, "", hash);
+  }
+
+  scrollToSection(hash);
+};
+
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() =>
@@ -13,8 +55,18 @@ const NavBar = () => {
       setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
     };
 
+    const handleHistoryNavigation = () => {
+      if (window.location.hash) {
+        scrollToSection(window.location.hash, "auto");
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("popstate", handleHistoryNavigation);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("popstate", handleHistoryNavigation);
+    };
   }, []);
 
   useEffect(() => {
@@ -38,7 +90,7 @@ const NavBar = () => {
       </a>
       <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="inner">
-          <a className="logo" href="#hero">
+          <a className="logo" href="#hero" onClick={(event) => handleSectionClick(event, "#hero")}>
             Naitik Gupta
           </a>
 
@@ -46,7 +98,7 @@ const NavBar = () => {
             <ul>
               {navLinks.map(({ link, name }) => (
                 <li key={name} className="group">
-                  <a href={link} className="nav-link">
+                  <a href={link} className="nav-link" onClick={(event) => handleSectionClick(event, link)}>
                     <span>{name}</span>
                     <span className="underline" />
                   </a>
@@ -94,7 +146,7 @@ const NavBar = () => {
               </span>
             </button>
 
-            <a href="#contact" className="contact-btn group">
+            <a href="#contact" className="contact-btn group" onClick={(event) => handleSectionClick(event, "#contact")}>
               <span className="inner">
                 <span>Contact</span>
               </span>
@@ -106,7 +158,7 @@ const NavBar = () => {
           <ul>
             {navLinks.map(({ link, name }) => (
               <li key={name}>
-                <a href={link}>{name}</a>
+                <a href={link} onClick={(event) => handleSectionClick(event, link)}>{name}</a>
               </li>
             ))}
           </ul>
