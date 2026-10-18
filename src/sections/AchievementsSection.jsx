@@ -13,7 +13,7 @@ const AchievementsSection = () => {
           <TitleHeader
             id="achievements-title"
             title="Achievements"
-            sub="Competition recognition and verified coding-profile milestones"
+            sub="Competition recognition and coding-profile milestones"
           />
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-14">
@@ -43,7 +43,7 @@ const AchievementsSection = () => {
           <TitleHeader
             id="certifications-title"
             title="Certifications"
-            sub="Credentials listed in the submitted resumes"
+            sub="Cloud, database, and JavaScript credentials"
           />
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-14">

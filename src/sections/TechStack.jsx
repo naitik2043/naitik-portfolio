@@ -12,7 +12,7 @@ const TechStack = () => {
         <TitleHeader
           id="skills-title"
           title="Technical Skills"
-          sub="Skills and tools listed in the submitted resumes"
+          sub="Technologies and methods applied across software, AI, and data projects"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-14">

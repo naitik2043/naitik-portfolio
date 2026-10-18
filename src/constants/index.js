@@ -7,7 +7,7 @@ const navLinks = [
 ];
 
 const counterItems = [
-  { value: "834", suffix: "+", label: "Questions solved · Codolio" },
+  { value: "834", suffix: "", label: "Questions solved · Codolio" },
   { value: "51", suffix: "", label: "Contests attended · Codolio" },
   { value: "1740", suffix: "", label: "Peak LeetCode contest rating" },
   { value: "8.27", suffix: "/10", label: "B.Tech CSE CGPA" },
@@ -197,9 +197,9 @@ const achievements = [
       "Received the Best Innovators Award for Problem Statement 5: AI Agent Governance and Human Accountability Operating System.",
   },
   {
-    title: "834+ Problems Solved",
+    title: "834 Questions Solved",
     detail:
-      "Coding profile total shown on Codolio across linked problem-solving platforms.",
+      "Current total displayed on the Codolio coding profile across linked problem-solving platforms.",
   },
   {
     title: "LeetCode Peak Contest Rating: 1740",
@@ -211,7 +211,7 @@ const achievements = [
   },
   {
     title: "51 Coding Contests",
-    detail: "Contest attendance total shown on the Codolio profile.",
+    detail: "Contest attendance total displayed on the Codolio profile.",
   },
 ];
 
