@@ -36,7 +36,7 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
       );
 
-      toast.success(`Thanks ${form.name}! Your message was sent 🚀`);
+      toast.success(`Thanks ${form.name}! Your message was sent.`);
 
       setForm({
         name: "",
@@ -54,16 +54,17 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-[calc(100vh-80px)] flex items-center py-8"
+      className="min-h-[calc(100vh-80px)] flex items-center py-8 scroll-mt-32"
+      aria-labelledby="contact-title"
     >
       <div className="w-full max-w-7xl mx-auto px-5 md:px-10">
         <TitleHeader
+          id="contact-title"
           title="Get in Touch"
-          sub="Interested in collaboration, internships, or project discussions? Feel free to reach out."
+          sub="Interested in software engineering, full-stack, or data science opportunities? Feel free to reach out."
         />
 
         <div className="grid-12-cols mt-6 items-stretch gap-6">
-          {/* Contact Form */}
           <div className="xl:col-span-5">
             <div className="card-border rounded-xl p-7 h-full flex items-center">
               <form
@@ -77,6 +78,7 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
+                    autoComplete="name"
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Enter your name"
@@ -90,6 +92,7 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
@@ -111,21 +114,21 @@ const Contact = () => {
                 </div>
 
                 <button type="submit" disabled={loading}>
-                  <div className="cta-button group">
-                    <div className="bg-circle" />
-                    <p className="text">
+                  <span className="cta-button group">
+                    <span className="bg-circle" aria-hidden="true" />
+                    <span className="text">
                       {loading ? "Sending..." : "Send Message"}
-                    </p>
-                    <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
-                    </div>
-                  </div>
+                    </span>
+                    <span className="arrow-wrapper" aria-hidden="true">
+                      <img src="/images/arrow-down.svg" alt="" />
+                    </span>
+                  </span>
                 </button>
               </form>
             </div>
           </div>
 
-          <div className="xl:col-span-7 min-h-[320px]">
+          <div className="xl:col-span-7 min-h-[320px]" aria-hidden="true">
             <div className="bg-[#cd7c2e] w-full h-full rounded-3xl overflow-hidden hover:cursor-grab">
               <ContactExperience />
             </div>

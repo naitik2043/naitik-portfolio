@@ -1,228 +1,260 @@
 const navLinks = [
-  {
-    name: "Projects",
-    link: "#projects",
-  },
-  {
-    name: "Expertise",
-    link: "#expertise",
-  },
-  {
-    name: "Journey",
-    link: "#journey",
-  },
-  {
-    name: "Skills",
-    link: "#skills",
-  },
-  {
-    name: "Testimonials",
-    link: "#testimonials",
-  },
-];
-
-const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { name: "Projects", link: "#projects" },
+  { name: "Skills", link: "#skills" },
+  { name: "Education", link: "#education" },
+  { name: "Achievements", link: "#achievements" },
+  { name: "Certifications", link: "#certifications" },
 ];
 
 const counterItems = [
-  { value: 750, suffix: "+", label: "Problems Solved" },
-  { value: 12, suffix: "+", label: "Projects Built" },
-  { value: 1740, suffix: "", label: "Peak LeetCode Rating" },
-  { value: 50, suffix: "+", label: "Coding Contests" },
+  { value: "834", suffix: "+", label: "Questions solved · Codolio" },
+  { value: "51", suffix: "", label: "Contests attended · Codolio" },
+  { value: "1740", suffix: "", label: "Peak LeetCode contest rating" },
+  { value: "8.27", suffix: "/10", label: "B.Tech CSE CGPA" },
 ];
 
 const abilities = [
   {
     imgPath: "/images/frontend.png",
-    title: "Frontend Development",
-    desc: "Building responsive and interactive web applications using React, JavaScript, and modern UI frameworks with a strong focus on performance and clean user experience.",
+    title: "Software Engineering",
+    desc: "Build responsive web applications with React.js and Next.js, using TypeScript, REST APIs, reusable components, and state management.",
   },
   {
     imgPath: "/images/dsa.png",
-    title: "Problem Solving",
-    desc: "Practicing Data Structures and Algorithms to strengthen logical thinking and develop efficient solutions to complex problems across coding platforms.",
+    title: "AI Agent Governance",
+    desc: "Built Abhed, a gateway that applies deterministic policies to agent tool calls, routes high-risk actions for human approval, and records decisions in a signed, hash-chained audit ledger.",
   },
   {
     imgPath: "/images/learning.png",
-    title: "Continuous Learning",
-    desc: "Continuously exploring new technologies, improving development practices, and building real-world projects to enhance technical and problem-solving skills.",
+    title: "Data Science & Machine Learning",
+    desc: "Work through data cleaning, exploratory analysis, feature engineering, and model evaluation. A TensorFlow/Keras MNIST classifier achieved 97.78% test accuracy.",
   },
 ];
 
-const techStackImgs = [
+const projects = [
   {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
+    title: "Abhed",
+    category: "AI Agent Governance Platform",
+    summary:
+      "An AI-agent governance gateway that checks tool calls against deterministic policies before execution and records decisions for traceability.",
+    highlights: [
+      "Added human approval for high-risk actions and SHA-256 binding to the approved action.",
+      "Built a signed, hash-chained audit ledger, a no-code OpenAI-compatible integration, and a JavaScript SDK.",
+      "Deployed with Supabase Postgres for shared state; the repository includes 62 automated tests.",
+    ],
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Vercel"],
+    liveUrl: "https://abhed.vercel.app/",
+    repoUrl: "https://github.com/naitik2043/Abhed",
   },
   {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
+    title: "PasteApp",
+    category: "Code & Text Sharing Platform",
+    summary:
+      "A responsive paste manager for creating, organizing, searching, and reviewing code and text snippets.",
+    highlights: [
+      "Implemented create, read, update, and delete workflows with Redux Toolkit state and Local Storage persistence.",
+      "Added title and content search, pinning, view counters, dashboard analytics, and dark mode.",
+    ],
+    technologies: ["React", "JavaScript", "Redux Toolkit", "Tailwind CSS", "Local Storage"],
+    liveUrl: "https://paste-app-wine.vercel.app/",
+    repoUrl: "https://github.com/naitik2043/Paste-App",
   },
   {
-    name: "Backend Developer",
-    imgPath: "/images/logos/node.png",
+    title: "ReUnix",
+    category: "Alumni Connection Platform",
+    summary:
+      "Collaborated on a responsive frontend that connects students and alumni through role-based dashboards and community features.",
+    highlights: [
+      "Built student, alumni, and admin dashboard interfaces with protected routes.",
+      "Implemented demo authentication with React Context and Local Storage, plus interfaces for mentorship, jobs, and events.",
+    ],
+    technologies: ["React", "TypeScript", "React Router", "Tailwind CSS", "React Context"],
+    liveUrl: "https://reunix.vercel.app/",
+    repoUrl: "https://github.com/naitik2043/ReUnix",
   },
   {
-    name: "Interactive Developer",
-    imgPath: "/images/logos/three.png",
-  },
-  {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
+    title: "Data Science & ML Projects",
+    category: "Python · Data Analysis · Machine Learning",
+    summary:
+      "A learning portfolio with 50+ Jupyter notebooks covering Python, statistics, exploratory data analysis, data preparation, and machine-learning workflows.",
+    highlights: [
+      "Built a California Housing regression workflow with missing-value handling, categorical encoding, feature scaling, and Scikit-learn preprocessing pipelines.",
+      "Trained a TensorFlow/Keras MNIST digit classifier with 97.78% test accuracy; also implemented Iris and smartphone classifiers.",
+    ],
+    technologies: ["Python", "Pandas", "Scikit-learn", "TensorFlow", "Keras", "Jupyter"],
+    repoUrl: "https://github.com/naitik2043/data-science-journey",
   },
 ];
 
-const techStackIcons = [
-  {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
-  },
-];
+const education = {
+  degree: "Bachelor of Technology in Computer Science and Engineering",
+  institution: "KIET Deemed to be University",
+  location: "Ghaziabad",
+  period: "2024–2028",
+  cgpa: "8.27/10",
+  coursework: [
+    "Data Structures and Algorithms",
+    "Object-Oriented Programming",
+    "Database Management Systems",
+    "Operating Systems",
+    "Computer Networks",
+    "Probability and Statistics",
+  ],
+};
 
-const expCards = [
+const skillGroups = [
   {
-    review:
-      "Currently pursuing a Bachelor of Technology in Computer Science with a focus on strengthening fundamentals in programming, software development, and problem solving through academic coursework and hands-on projects.",
-    logoPath: "/images/kiet-logo.png",
-    title: "B.Tech – Computer Science | KIET Group of Institutions",
-    date: "2024 – 2028",
-    responsibilities: [
-      "Studying core Computer Science subjects including Data Structures, Algorithms, Operating Systems, and Software Development.",
-      "Applying theoretical concepts through hands-on academic projects and practical coding experience.",
-      "Continuously learning modern technologies while preparing for frontend development and software engineering internships.",
+    category: "Programming Languages",
+    skills: ["C++", "Python", "JavaScript", "TypeScript", "SQL", "PL/SQL"],
+  },
+  {
+    category: "Frontend Development",
+    skills: [
+      "React.js",
+      "Next.js",
+      "React Hooks",
+      "React Router",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Responsive Web Design",
     ],
   },
   {
-    review:
-      "Focused on building modern and responsive user interfaces using React and Tailwind CSS, emphasizing clean design, performance optimization, and reusable component architecture.",
-    logoPath: "/images/react-logo.png",
-    title: "Frontend Development Journey",
-    date: "2025 – Present",
-    responsibilities: [
-      "Developed responsive web applications using React, Tailwind CSS, and component-based architecture.",
-      "Implemented interactive UI components and smooth scroll-based animations using GSAP.",
-      "Built practical projects including a Paste App and a personal developer portfolio.",
+    category: "Backend, APIs & State",
+    skills: [
+      "Node.js (foundational)",
+      "REST APIs",
+      "API Gateway",
+      "Redux Toolkit",
+      "React Context",
+      "JavaScript SDKs",
     ],
   },
   {
-    review:
-      "Strengthening analytical thinking and algorithmic problem-solving skills through consistent practice of Data Structures, Algorithms, and competitive programming.",
-    logoPath: "/images/leetcode-logo.png",
-    title: "Data Structures & Algorithmic Problem Solving",
-    date: "2025 – Present",
-    responsibilities: [
-      "Solved 700+ algorithmic problems across platforms including LeetCode, CodeChef, and Codeforces.",
-      "Achieved a 1600+ rating on LeetCode and earned a 2★ rating on CodeChef.",
-      "Practiced core topics including arrays, strings, recursion, trees, dynamic programming, and hash-based data structures.",
+    category: "Databases",
+    skills: ["PostgreSQL", "Supabase", "MySQL", "MongoDB"],
+  },
+  {
+    category: "Data Science & Machine Learning",
+    skills: [
+      "NumPy",
+      "Pandas",
+      "Data Cleaning",
+      "Exploratory Data Analysis",
+      "Feature Engineering",
+      "Scikit-learn",
+      "Regression",
+      "Classification",
+      "Cross-Validation",
+      "Preprocessing Pipelines",
+      "Model Evaluation",
+      "Matplotlib",
+      "Seaborn",
+    ],
+  },
+  {
+    category: "Deep Learning & AI",
+    skills: [
+      "TensorFlow",
+      "Keras",
+      "Artificial Neural Networks",
+      "LLM and RAG fundamentals (learning)",
+    ],
+  },
+  {
+    category: "AI Systems & Governance",
+    skills: [
+      "Deterministic Policy Evaluation",
+      "AI Agent Tool-Call Governance",
+      "Human-in-the-Loop Approval Workflows",
+      "SHA-256 Action Binding",
+      "Signed, Hash-Chained Audit Ledgers",
+    ],
+  },
+  {
+    category: "Computer Science & Tools",
+    skills: [
+      "Data Structures and Algorithms",
+      "Object-Oriented Programming",
+      "Database Management Systems",
+      "Operating Systems",
+      "Computer Networks",
+      "Git",
+      "GitHub",
+      "Vercel",
+      "Jupyter Notebook",
+      "Google Colab",
+      "VS Code",
     ],
   },
 ];
 
-const expLogos = [
+const achievements = [
   {
-    name: "logo1",
-    imgPath: "/images/logo1.png",
+    title: "CodeX 3.0 Winner",
+    detail:
+      "Received the Best Innovators Award for Problem Statement 5: AI Agent Governance and Human Accountability Operating System.",
   },
   {
-    name: "logo2",
-    imgPath: "/images/logo2.png",
+    title: "834+ Problems Solved",
+    detail:
+      "Coding profile total shown on Codolio across linked problem-solving platforms.",
   },
   {
-    name: "logo3",
-    imgPath: "/images/logo3.png",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Rahul Sharma",
-    role: "B.Tech CSE Student, KIET",
-    review:
-      "Naitik is highly skilled in frontend development and consistently writes well-structured React components. His focus on clean UI design and responsive layouts makes collaboration smooth and efficient during academic projects.",
-    imgPath: "/images/peer1.png",
+    title: "LeetCode Peak Contest Rating: 1740",
+    detail: "Peak contest rating listed in the submitted resumes.",
   },
   {
-    name: "Aman Verma",
-    role: "Web Development Project Teammate",
-    review:
-      "Working with Naitik was a great experience. He approaches problems logically and ensures that the final product is both user-friendly and responsive. His attention to detail in frontend implementation stands out.",
-    imgPath: "/images/peer2.png",
+    title: "CodeChef 2-Star",
+    detail: "Peak rating: 1461.",
   },
   {
-    name: "Priya Singh",
-    role: "Hackathon Team Member",
-    review:
-      "Naitik brings strong problem-solving skills and solid knowledge of React and JavaScript. During team projects he contributes actively, communicates well, and helps deliver high-quality results within deadlines.",
-    imgPath: "/images/peer3.png",
+    title: "51 Coding Contests",
+    detail: "Contest attendance total shown on the Codolio profile.",
   },
 ];
 
-const socialImgs = [
+const certifications = [
   {
-    name: "GitHub",
-    imgPath: "/images/github.png",
-    link: "https://github.com/yourusername",
+    name: "AWS Certified Cloud Practitioner (CLF-C02)",
+    issuer: "Amazon Web Services",
+    date: "May 2026",
   },
   {
-    name: "LinkedIn",
-    imgPath: "/images/linkedin.png",
-    link: "https://linkedin.com/in/yourprofile",
+    name: "Database Programming with SQL",
+    issuer: "Oracle Academy",
+    date: "November 2025",
   },
   {
-    name: "Codolio",
-    imgPath: "/images/codolio.png",
-    link: "https://codolio.com/profile/Naitik_Gupta",
+    name: "SQL (Basic) Skill Certification",
+    issuer: "HackerRank",
+    date: "September 2025",
   },
   {
-    name: "Instagram",
-    imgPath: "/images/insta.png",
-    link: "https://instagram.com/naitik.anuj",
+    name: "ECMAScript ES6 JavaScript Tutorials",
+    issuer: "Infosys Springboard",
+    date: "April 2026",
   },
+];
+
+const profileLinks = [
+  { name: "GitHub", link: "https://github.com/naitik2043" },
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/naitik2043/" },
+  { name: "Codolio", link: "https://codolio.com/profile/Naitik_Gupta" },
+  { name: "LeetCode", link: "https://leetcode.com/u/Naitik_Gupta/" },
+  { name: "CodeChef", link: "https://www.codechef.com/users/naitik_gupta" },
+  { name: "Codeforces", link: "https://codeforces.com/profile/Naitik_Gupta" },
 ];
 
 export {
-  words,
-  abilities,
-  counterItems,
-  expCards,
-  expLogos,
-  testimonials,
-  socialImgs,
-  techStackIcons,
-  techStackImgs,
   navLinks,
+  counterItems,
+  abilities,
+  projects,
+  education,
+  skillGroups,
+  achievements,
+  certifications,
+  profileLinks,
 };

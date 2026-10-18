@@ -4,7 +4,7 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import FeatureCards from "./sections/FeatureCards";
 import JourneySection from "./sections/JourneySection";
 import TechStack from "./sections/TechStack";
-import Testimonials from "./sections/Testimonials";
+import AchievementsSection from "./sections/AchievementsSection";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 
@@ -23,15 +23,16 @@ function App() {
           },
         }}
       />
-
       <NavBar />
-      <Hero />
-      <ShowcaseSection />
-      <FeatureCards />
-      <JourneySection />
-      <TechStack />
-      <Testimonials />
-      <Contact />
+      <main id="main-content" tabIndex="-1">
+        <Hero />
+        <ShowcaseSection />
+        <FeatureCards />
+        <TechStack />
+        <JourneySection />
+        <AchievementsSection />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

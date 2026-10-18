@@ -39,6 +39,14 @@ section {
 }
 
 @layer components {
+  .skip-link {
+    @apply fixed left-4 -top-20 z-[200] rounded-lg bg-white px-4 py-3 font-semibold text-black;
+  }
+
+  .skip-link:focus {
+    @apply top-4;
+  }
+
   .padding-x {
     @apply px-5 md:px-10;
   }
@@ -72,7 +80,7 @@ section {
   }
 
   .grid-4-cols {
-    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-7;
+    @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4;
   }
 
   .grid-12-cols {
@@ -137,6 +145,18 @@ section {
             @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full;
           }
         }
+      }
+    }
+
+    .mobile-nav {
+      @apply flex lg:hidden mt-3 overflow-x-auto;
+
+      ul {
+        @apply mx-auto flex max-w-full gap-5 whitespace-nowrap text-sm text-white-50;
+      }
+
+      a {
+        @apply hover:text-white;
       }
     }
 
@@ -464,4 +484,20 @@ section {
 
 .card:hover::before {
   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

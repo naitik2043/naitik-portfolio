@@ -1,58 +1,40 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-
 import TitleHeader from "../components/TitleHeader";
-import TechIconCardExperience from "../components/Models/tech_logos/TechIconCardExperience";
-import { techStackIcons } from "../constants";
+import { skillGroups } from "../constants";
 
 const TechStack = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".tech-card",
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.inOut",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: "#skills",
-          start: "top center",
-        },
-      },
-    );
-  });
-
   return (
-    <section id="skills" className="flex-center section-padding">
-      <div className="w-full md:px-10 px-5">
+    <section
+      id="skills"
+      className="w-full section-padding scroll-mt-32"
+      aria-labelledby="skills-title"
+    >
+      <div className="max-w-7xl mx-auto">
         <TitleHeader
-          title="Skills & Technologies"
-          sub="Frontend development tools and technologies used to build modern and responsive web applications"
+          id="skills-title"
+          title="Technical Skills"
+          sub="Skills and tools listed in the submitted resumes"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16">
-          {techStackIcons.map((techStackIcon) => (
-            <div
-              key={techStackIcon.name}
-              className="card-border tech-card overflow-hidden group rounded-2xl"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-14">
+          {skillGroups.map((group) => (
+            <article
+              key={group.category}
+              className="rounded-2xl border border-white/10 bg-[#0d1118] p-6 md:p-7"
             >
-              <div className="tech-card-animated-bg" />
-
-              <div className="tech-card-content flex flex-col items-center justify-center gap-4 py-8">
-                <div className="tech-icon-wrapper">
-                  <TechIconCardExperience model={techStackIcon} />
-                </div>
-
-                <p className="text-sm font-medium text-center">
-                  {techStackIcon.name}
-                </p>
-              </div>
-            </div>
+              <h3 className="text-xl font-semibold text-sky-100">
+                {group.category}
+              </h3>
+              <ul className="flex flex-wrap gap-2 mt-4">
+                {group.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 text-sm text-white/85"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>

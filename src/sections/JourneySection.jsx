@@ -1,111 +1,48 @@
 import TitleHeader from "../components/TitleHeader";
-import GlowCard from "../components/GlowCard";
-import { expCards } from "../constants";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { education } from "../constants";
 
 const JourneySection = () => {
-  useGSAP(() => {
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      gsap.from(card, {
-        xPercent: -100,
-        opacity: 0,
-        transformOrigin: "left left",
-        duration: 1,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-        },
-      });
-    });
-
-    gsap.to(".timeline", {
-      transformOrigin: "bottom bottom",
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-        onUpdate: (self) => {
-          gsap.to(".timeline", {
-            scaleY: 1 - self.progress,
-          });
-        },
-      },
-    });
-
-    gsap.utils.toArray(".expText").forEach((text) => {
-      gsap.from(text, {
-        opacity: 0,
-        xPercent: -20,
-        duration: 1,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: text,
-          start: "top 60%",
-        },
-      });
-    });
-  }, []);
-
   return (
     <section
-      id="journey"
-      className="w-full md:mt-40 mt-20 section-padding xl:px-0 scroll-mt-32"
+      id="education"
+      className="w-full section-padding scroll-mt-32"
+      aria-labelledby="education-title"
     >
-      <div className="w-full h-full md:px-20 px-5">
+      <div className="max-w-7xl mx-auto">
         <TitleHeader
-          title="Education & Development Journey"
-          sub="My academic background and continuous growth in frontend development and Data Structures & Algorithms."
+          id="education-title"
+          title="Education"
+          sub="Academic background and relevant coursework"
         />
 
-        <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
-            {expCards.map((card, index) => (
-              <div key={card.title} className="exp-card-wrapper">
-                <div className="xl:w-2/6">
-                  <GlowCard card={card} index={index} />
-                </div>
-
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    <div className="timeline-wrapper">
-                      <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
-                      </div>
-
-                      <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">🗓️ {card.date}</p>
-                        <p className="text-color-[#839cb5] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
-                          {card.responsibilities.map(
-                            (responsibility, index) => (
-                              <li key={index} className="text-lg">
-                                {responsibility}
-                              </li>
-                            ),
-                          )}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <article className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-10">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-semibold">
+                {education.degree}
+              </h3>
+              <p className="text-white-50 text-lg mt-2">
+                {education.institution} · {education.location}
+              </p>
+              <p className="text-white/70 mt-2">{education.period}</p>
+            </div>
+            <p className="rounded-xl border border-sky-200/30 bg-sky-200/10 px-5 py-3 text-xl font-semibold text-sky-100">
+              CGPA: {education.cgpa}
+            </p>
           </div>
-        </div>
+
+          <h4 className="text-lg font-semibold mt-8">Relevant Coursework</h4>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
+            {education.coursework.map((course) => (
+              <li
+                key={course}
+                className="rounded-lg border border-white/10 px-4 py-3 text-white-50"
+              >
+                {course}
+              </li>
+            ))}
+          </ul>
+        </article>
       </div>
     </section>
   );

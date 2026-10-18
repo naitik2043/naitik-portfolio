@@ -1,28 +1,17 @@
 const Button = ({ text, className = "", id }) => {
-  const handleClick = () => {
-    const element = document.getElementById(id);
-    if (!element) return;
-
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className={`${className} cta-wrapper`}
+    <a
+      href={`#${id}`}
+      className={`${className} cta-wrapper inline-flex items-center`}
     >
-      <div className="cta-button group">
-        <div className="bg-circle" />
-        <p className="text">{text}</p>
-        <div className="arrow-wrapper">
-          <img src="/images/arrow-down.svg" alt="Scroll Down" />
-        </div>
-      </div>
-    </button>
+      <span className="cta-button group w-full">
+        <span className="bg-circle" aria-hidden="true" />
+        <span className="text">{text}</span>
+        <span className="arrow-wrapper" aria-hidden="true">
+          <img src="/images/arrow-down.svg" alt="" />
+        </span>
+      </span>
+    </a>
   );
 };
 
