@@ -553,7 +553,8 @@ html[data-theme="light"] .text-white-50,
 html[data-theme="light"] [class~="text-white/50"],
 html[data-theme="light"] [class~="text-white/60"],
 html[data-theme="light"] [class~="text-white/70"],
-html[data-theme="light"] [class~="text-white/80"] {
+html[data-theme="light"] [class~="text-white/80"],
+html[data-theme="light"] [class~="text-white/85"] {
   color: #334155;
 }
 
@@ -593,6 +594,10 @@ html[data-theme="light"] .navbar .contact-btn .inner {
 
 html[data-theme="light"] .navbar .contact-btn .inner span {
   color: #fff;
+}
+
+html[data-theme="light"] [class~="hover:text-white"]:hover {
+  color: #0f172a;
 }
 
 html[data-theme="light"] .bg-black,
