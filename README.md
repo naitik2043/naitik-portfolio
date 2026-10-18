@@ -3,7 +3,7 @@
 Computer Science and Engineering student at KIET Deemed to be University, building software, AI-agent governance systems, and applied machine-learning projects.
 
 **Live site:** [naitikgupta.vercel.app](https://naitikgupta.vercel.app/)  
-**GitHub:** [naitik2043](https://github.com/naitik2043) · **Codolio:** [Naitik Gupta](https://codolio.com/profile/Naitik_Gupta)
+**GitHub:** [naitik2043](https://github.com/naitik2043) · **LinkedIn:** [Naitik Gupta](https://www.linkedin.com/in/naitik2043/) · **Codolio:** [Naitik Gupta](https://codolio.com/profile/Naitik_Gupta)
 
 ## About
 
